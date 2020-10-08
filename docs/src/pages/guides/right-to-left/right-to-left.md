@@ -4,23 +4,26 @@
 
 ## Steps
 
-### 1. HTML
-
-Make sure the `dir` attribute is set on the body, otherwise native components will break:
-```html
-<body dir="rtl">
-```
-
-### 2. Theme
+### 1. Theme
 
 Set the direction in your custom theme:
 ```js
 const theme = createMuiTheme({
   direction: 'rtl',
+  overrides: {
+    MuiCssBaseline: {
+      '@global': {
+        body: {
+          flip: false,
+          direction: 'rtl',
+        },
+      },
+    },
+  },
 });
 ```
 
-### 3. jss-rtl
+### 2. jss-rtl
 
 You need this JSS plugin to flip the styles: [jss-rtl](https://github.com/alitaheri/jss-rtl).
 
